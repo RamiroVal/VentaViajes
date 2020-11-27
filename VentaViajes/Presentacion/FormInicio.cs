@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using VentaViajes.Presentacion;
 
 namespace VentaViajes
 {
@@ -24,7 +25,13 @@ namespace VentaViajes
 
         private void agregarToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Presentacion.FormAgregaDestino c = new Presentacion.FormAgregaDestino();
+            FormAgregaDestino c = new FormAgregaDestino();
+            c.ShowDialog();
+        }
+
+        private void individualToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FormConsultaIndDestinos c = new FormConsultaIndDestinos();
             c.ShowDialog();
         }
     }

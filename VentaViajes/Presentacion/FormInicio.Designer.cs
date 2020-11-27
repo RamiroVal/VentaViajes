@@ -31,15 +31,15 @@ namespace VentaViajes
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.boletosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.viajesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.agregarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.individualToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.globalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.agregarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viajesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.agregarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.globalToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.individualToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.agregarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,6 +63,33 @@ namespace VentaViajes
             this.boletosToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
             this.boletosToolStripMenuItem.Text = "Boletos";
             // 
+            // consuToolStripMenuItem
+            // 
+            this.consuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.individualToolStripMenuItem,
+            this.globalToolStripMenuItem});
+            this.consuToolStripMenuItem.Name = "consuToolStripMenuItem";
+            this.consuToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.consuToolStripMenuItem.Text = "Consultas";
+            // 
+            // individualToolStripMenuItem
+            // 
+            this.individualToolStripMenuItem.Name = "individualToolStripMenuItem";
+            this.individualToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.individualToolStripMenuItem.Text = "Individual";
+            // 
+            // globalToolStripMenuItem
+            // 
+            this.globalToolStripMenuItem.Name = "globalToolStripMenuItem";
+            this.globalToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.globalToolStripMenuItem.Text = "Global";
+            // 
+            // agregarToolStripMenuItem
+            // 
+            this.agregarToolStripMenuItem.Name = "agregarToolStripMenuItem";
+            this.agregarToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.agregarToolStripMenuItem.Text = "Agregar";
+            // 
             // viajesToolStripMenuItem
             // 
             this.viajesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -73,33 +100,6 @@ namespace VentaViajes
             this.viajesToolStripMenuItem.Text = "Destinos";
             this.viajesToolStripMenuItem.Click += new System.EventHandler(this.viajesToolStripMenuItem_Click);
             // 
-            // consuToolStripMenuItem
-            // 
-            this.consuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.individualToolStripMenuItem,
-            this.globalToolStripMenuItem});
-            this.consuToolStripMenuItem.Name = "consuToolStripMenuItem";
-            this.consuToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.consuToolStripMenuItem.Text = "Consultas";
-            // 
-            // agregarToolStripMenuItem
-            // 
-            this.agregarToolStripMenuItem.Name = "agregarToolStripMenuItem";
-            this.agregarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.agregarToolStripMenuItem.Text = "Agregar";
-            // 
-            // individualToolStripMenuItem
-            // 
-            this.individualToolStripMenuItem.Name = "individualToolStripMenuItem";
-            this.individualToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.individualToolStripMenuItem.Text = "Individual";
-            // 
-            // globalToolStripMenuItem
-            // 
-            this.globalToolStripMenuItem.Name = "globalToolStripMenuItem";
-            this.globalToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.globalToolStripMenuItem.Text = "Global";
-            // 
             // consultasToolStripMenuItem
             // 
             this.consultasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -108,13 +108,6 @@ namespace VentaViajes
             this.consultasToolStripMenuItem.Name = "consultasToolStripMenuItem";
             this.consultasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.consultasToolStripMenuItem.Text = "Consultas";
-            // 
-            // agregarToolStripMenuItem1
-            // 
-            this.agregarToolStripMenuItem1.Name = "agregarToolStripMenuItem1";
-            this.agregarToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.agregarToolStripMenuItem1.Text = "Agregar";
-            this.agregarToolStripMenuItem1.Click += new System.EventHandler(this.agregarToolStripMenuItem1_Click);
             // 
             // globalToolStripMenuItem1
             // 
@@ -127,6 +120,14 @@ namespace VentaViajes
             this.individualToolStripMenuItem1.Name = "individualToolStripMenuItem1";
             this.individualToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.individualToolStripMenuItem1.Text = "Individual";
+            this.individualToolStripMenuItem1.Click += new System.EventHandler(this.individualToolStripMenuItem1_Click);
+            // 
+            // agregarToolStripMenuItem1
+            // 
+            this.agregarToolStripMenuItem1.Name = "agregarToolStripMenuItem1";
+            this.agregarToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.agregarToolStripMenuItem1.Text = "Agregar";
+            this.agregarToolStripMenuItem1.Click += new System.EventHandler(this.agregarToolStripMenuItem1_Click);
             // 
             // FormInicio
             // 

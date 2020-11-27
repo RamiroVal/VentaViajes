@@ -180,7 +180,7 @@ namespace VentaViajes.Presentacion
                         $"\nClave: {clave}" +
                         $"\nNombre: {nombre}" +
                         $"\nCosto: {costo.ToString("C2")}" +
-                        $"\nDuracion: {duracion.ToString("C2").Replace('.', ':')}" +
+                        $"\nDuracion: {duracion.ToString("F").Replace('.', ':')}" +
                         $"\nHabilitado: {habilitado}", "Confirmacion", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                     if (confirmacion == DialogResult.Yes)
                     {

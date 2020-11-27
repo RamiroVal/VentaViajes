@@ -52,12 +52,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Persistencia\AdministraBoletos.cs" />
     <Compile Include="Persistencia\AdministraDestinos.cs" />
     <Compile Include="Presentacion\FormAgregaDestino.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Presentacion\FormAgregaDestino.Designer.cs">
       <DependentUpon>FormAgregaDestino.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\FormConsultaIndDestinos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\FormConsultaIndDestinos.Designer.cs">
+      <DependentUpon>FormConsultaIndDestinos.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentacion\FormConsultasBoletos.cs">
       <SubType>Form</SubType>
@@ -75,6 +82,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Presentacion\FormAgregaDestino.resx">
       <DependentUpon>FormAgregaDestino.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\FormConsultaIndDestinos.resx">
+      <DependentUpon>FormConsultaIndDestinos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\FormConsultasBoletos.resx">
       <DependentUpon>FormConsultasBoletos.cs</DependentUpon>
