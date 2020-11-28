@@ -26,9 +26,20 @@ namespace VentaViajes.Presentacion
 
         private void CargarDestinos()
         {
+            //string cadenaConexion = "Data Source=LAPTOP-NF0LIA82;Initial Catalog=VENTABOLETOS;Integrated Security=True";
+            //Destino[] destinos = AdministraDestinos.Destinos(cadenaConexion);
+            //if (destinos == null)
+            //{
+            //    foreach(SqlError er in AdministraBoletos.errores.Errors)
+            //    {
+            //        MessageBox.Show(er.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    }
+            //    return;
+            //}
+            //cmbDestinos.Items.AddRange(destinos);
             string cadenaConexion = "Data Source=LAPTOP-NF0LIA82;Initial Catalog=VENTABOLETOS;Integrated Security=True";
-            DataTable table = AdministraDestinos.ListarDestinos(cadenaConexion);
-            if (table == null)
+            string[] destinos = AdministraDestinos.ClavesDestinos(cadenaConexion);
+            if (destinos == null)
             {
                 foreach(SqlError er in AdministraBoletos.errores.Errors)
                 {
@@ -36,21 +47,24 @@ namespace VentaViajes.Presentacion
                 }
                 return;
             }
-            cmbDestinos.DataSource = table;
-            cmbDestinos.DisplayMember = "nombre_dest";
-            cmbDestinos.ValueMember = "clave_dest";
-            cmbDestinos.Text = "Seleccione destino";
+            cmbDestinos.Items.AddRange(destinos);
+
         }
 
         private void MuestraDatos()
         {
             string cadenaConexion = "Data Source=LAPTOP-NF0LIA82;Initial Catalog=VENTABOLETOS;Integrated Security=True";
-            string clave = cmbDestinos.SelectedValue.ToString();
+            string clave = cmbDestinos.SelectedItem.ToString();
             string[] datos = AdministraDestinos.DatosDestino(cadenaConexion, clave);
             txtNombre.Text = datos[0];
             txtCosto.Text = datos[1];
-            txtDuracion.Text = datos[2];
+            txtDuracion.Text = datos[2]+"Hr";
 
+            //Destino destino = cmbDestinos.SelectedItem as Destino;
+
+            //txtNombre.Text = destino.Nombre;
+            //txtCosto.Text = destino.Costo.ToString("C2");
+            //txtDuracion.Text = destino.Duracion.ToString() + "hr";
         }
 
         private void cmbDestinos_SelectionChangeCommitted(object sender, EventArgs e)

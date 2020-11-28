@@ -56,22 +56,22 @@ namespace VentaViajes.Persistencia
         }
 
         /// <summary>
-        /// Método que consulta el ID de destino y el nombre de destino.
+        /// Método que devuelve una lista con las claves de los destinos.
         /// </summary>
         /// <param name="cadenaC">Cadena de conexión.</param>
-        /// <returns>DataTable con los datos de la consulta.</returns>
-        public static DataTable ListarDestinos(string cadenaC)
+        /// <returns>Lista con claves de destino.</returns>
+        public static Destino[] Destinos(string cadenaC)
         {
-            DataTable dataTable = new DataTable();
             SqlCommand sqlCommand = new SqlCommand();
             SqlConnection sqlConnection = UsoBD.ConectaBD(cadenaC);
             SqlDataReader reader = null;
+            List<Destino> claves = new List<Destino>();
             if (sqlConnection == null)
             {
                 errores = UsoBD.ESalida;
                 return null;
             }
-            string proc = "MuestraDestinos";
+            string proc = "DatosDestinos";
             sqlCommand.Connection = sqlConnection;
             sqlCommand.CommandText = proc;
             sqlCommand.CommandType = CommandType.StoredProcedure;
@@ -84,10 +84,59 @@ namespace VentaViajes.Persistencia
                 sqlConnection.Close();
                 return null;
             }
-            dataTable.Load(reader);
-            reader.Close();
+            while (reader.Read())
+            {
+                string clave = reader.GetValue(0).ToString();
+                string nombre = reader.GetValue(1).ToString();
+                double costo = Convert.ToDouble(reader.GetValue(2));
+                double duracion = Convert.ToDouble(reader.GetValue(3));
+                string habilitado = reader.GetValue(4).ToString();
+                claves.Add(new Destino(clave, nombre, costo, duracion, habilitado));
+            }
+            Destino[] c = new Destino[claves.Count];
+            claves.CopyTo(c);
             sqlConnection.Close();
-            return dataTable;
+            return c;
+        }
+
+        /// <summary>
+        /// Método que devuelve las claves de los destinos.
+        /// </summary>
+        /// <param name="cadenaC">Cadena de conexión.</param>
+        /// <returns>Arreglo string con las claves de destino.</returns>
+        public static string[] ClavesDestinos(string cadenaC)
+        {
+            SqlCommand sqlCommand = new SqlCommand();
+            SqlConnection sqlConnection = UsoBD.ConectaBD(cadenaC);
+            SqlDataReader reader = null;
+            List<string> claves = new List<string>();
+            if (sqlConnection == null)
+            {
+                errores = UsoBD.ESalida;
+                return null;
+            }
+            string proc = "IdDestinos";
+            sqlCommand.Connection = sqlConnection;
+            sqlCommand.CommandText = proc;
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                reader = sqlCommand.ExecuteReader();
+            }
+            catch (SqlException e)
+            {
+                errores = e;
+                sqlConnection.Close();
+                return null;
+            }
+            while (reader.Read())
+            {
+                claves.Add(reader.GetValue(0).ToString());
+            }
+            string[] c = new string[claves.Count];
+            claves.CopyTo(c);
+            sqlConnection.Close();
+            return c;
         }
 
         /// <summary>
@@ -114,7 +163,20 @@ namespace VentaViajes.Persistencia
             {
                 datos[0] = reader.GetValue(0).ToString();
                 datos[1] = Convert.ToDouble(reader.GetValue(1)).ToString("C2");
-                datos[2] = reader.GetValue(2).ToString().Replace('.', ':');
+                datos[2] = reader.GetValue(2).ToString();
+
+                // Convierte double a formato hora.
+                string[] d = datos[2].Split('.');
+                double dec = Convert.ToDouble(d[1]);
+                dec = dec / 100 * 60;
+                if (dec < 10)
+                {
+                    datos[2] = d[0] + ":" + dec+"0";
+                }
+                else
+                {
+                    datos[2] = d[0] + ":" + dec;
+                }
             }
             connection.Close();
             return datos; ;

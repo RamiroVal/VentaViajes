@@ -119,6 +119,7 @@ namespace VentaViajes.Presentacion
             this.cmbDestinos.Name = "cmbDestinos";
             this.cmbDestinos.Size = new System.Drawing.Size(144, 21);
             this.cmbDestinos.TabIndex = 0;
+            this.cmbDestinos.Text = "Seleccione una Clave";
             this.cmbDestinos.SelectionChangeCommitted += new System.EventHandler(this.cmbDestinos_SelectionChangeCommitted);
             // 
             // FormConsultaIndDestinos
