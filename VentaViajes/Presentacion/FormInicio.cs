@@ -49,7 +49,8 @@ namespace VentaViajes
 
         private void individualToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            FormConsultaIndBoletos c = new FormConsultaIndBoletos();
+            c.ShowDialog();
         }
     }
 }

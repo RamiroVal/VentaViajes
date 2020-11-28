@@ -68,6 +68,12 @@
     <Compile Include="Presentacion\FormConsultaGlobalDestinos.Designer.cs">
       <DependentUpon>FormConsultaGlobalDestinos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentacion\FormConsultaIndBoletos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\FormConsultaIndBoletos.Designer.cs">
+      <DependentUpon>FormConsultaIndBoletos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\FormConsultaIndDestinos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +99,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\FormConsultaGlobalDestinos.resx">
       <DependentUpon>FormConsultaGlobalDestinos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\FormConsultaIndBoletos.resx">
+      <DependentUpon>FormConsultaIndBoletos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\FormConsultaIndDestinos.resx">
       <DependentUpon>FormConsultaIndDestinos.cs</DependentUpon>

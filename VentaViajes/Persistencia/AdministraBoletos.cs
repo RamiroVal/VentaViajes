@@ -108,5 +108,81 @@ namespace VentaViajes.Persistencia
             connection.Close();
             return bol;
         }
+
+        /// <summary>
+        /// Método que consulta los números de boletos.
+        /// </summary>
+        /// <param name="strC">Cadena de conexión.</param>
+        /// <returns>Arreglo string con los números de boletos.</returns>
+        public static string[] Claves(string strC)
+        {
+            SqlConnection connection = UsoBD.ConectaBD(strC);
+            if (connection == null)
+            {
+                errores = UsoBD.ESalida;
+                return null;
+            }
+            SqlCommand command = new SqlCommand();
+            SqlDataReader reader = null;
+            List<string> claves = new List<string>();
+            string proc = "ClavesBoletos";
+            command.Connection = connection;
+            command.CommandText = proc;
+            command.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                reader = command.ExecuteReader();
+            }catch(SqlException e)
+            {
+                errores = e;
+                connection.Close();
+                return null;
+            }
+            while (reader.Read())
+            {
+                claves.Add(reader.GetValue(0).ToString());
+            }
+            string[] c = new string[claves.Count];
+            claves.CopyTo(c);
+            connection.Close();
+            return c;
+        }
+
+        public static string[] DatosBoleto(string conexion, int clave)
+        {
+            SqlConnection connection = UsoBD.ConectaBD(conexion);
+            if (connection == null)
+            {
+                errores = UsoBD.ESalida;
+                return null;
+            }
+            SqlCommand command = new SqlCommand();
+            SqlDataReader reader = null;
+            string[] boleto = new string[6];
+            string proc = "BoletoClave";
+            command.Parameters.AddWithValue("@IdBoleto", clave);
+            command.Connection = connection;
+            command.CommandText = proc;
+            command.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                reader = command.ExecuteReader();
+            }catch(SqlException e)
+            {
+                errores = e;
+                connection.Close();
+                return null;
+            }
+            while (reader.Read())
+            {
+                boleto[0] = reader.GetValue(0).ToString();
+                boleto[1] = reader.GetValue(1).ToString();
+                boleto[2] = reader.GetValue(2).ToString();
+                boleto[3] = reader.GetValue(3).ToString();
+                boleto[4] = reader.GetValue(4).ToString();
+                boleto[5] = reader.GetValue(5).ToString();
+            }
+            return boleto;
+        }
     }
 }
