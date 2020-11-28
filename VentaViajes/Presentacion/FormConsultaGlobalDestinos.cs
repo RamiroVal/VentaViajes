@@ -21,7 +21,8 @@ namespace VentaViajes.Presentacion
         private void FormConsultaGlobalDestinos_Load(object sender, EventArgs e)
         {
             string cadenaC = "Data Source=LAPTOP-NF0LIA82;Initial Catalog=VENTABOLETOS;Integrated Security=True";
-            dtgDestinos.DataSource = AdministraDestinos.Destinos(cadenaC);
+            Destino[] destinos = AdministraDestinos.Destinos(cadenaC);
+            dtgDestinos.DataSource = destinos;
         }
     }
 }

@@ -52,9 +52,61 @@ namespace VentaViajes.Persistencia
                 conexion.Close();
                 return false;
             }
-
             conexion.Close();
             return true;
+        }
+
+        /// <summary>
+        /// Método que obtiene los atributos de BOLETOS
+        /// </summary>
+        /// <param name="strConexion">Cadena de conexión.</param>
+        /// <returns>Arreglo de Boleto con los atributos.</returns>
+        public static Boleto[] Boletos(string strConexion)
+        {
+            SqlConnection connection = UsoBD.ConectaBD(strConexion);
+            if (connection == null)
+            {
+                errores = UsoBD.ESalida;
+                return null;
+            }
+            SqlCommand command = new SqlCommand();
+            SqlDataReader reader = null;
+            List<Boleto> boletos = new List<Boleto>();
+            string proc = "ConsultaBoletos";
+            command.Connection = connection;
+            command.CommandText = proc;
+            command.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                reader = command.ExecuteReader();
+            }catch(SqlException e)
+            {
+                errores = e;
+                connection.Close();
+                return null;
+            }
+            while (reader.Read())
+            {
+                int clave = Convert.ToInt32(reader.GetValue(0));
+                string nomDestino = reader.GetValue(1).ToString();
+                string nomPasajero = reader.GetValue(2).ToString();
+                int numAsiento = Convert.ToInt32(reader.GetValue(3));
+                int tipoBoleto;
+                if (reader.GetValue(4).ToString() == "")
+                {
+                    tipoBoleto = 0;
+                }
+                else
+                {
+                    tipoBoleto = Convert.ToInt32(reader.GetValue(4));
+                }
+                double costo = Convert.ToDouble(reader.GetValue(5));
+                boletos.Add(new Boleto(clave, nomDestino, nomPasajero, numAsiento, tipoBoleto, costo));
+            }
+            Boleto[] bol = new Boleto[boletos.Count];
+            boletos.CopyTo(bol);
+            connection.Close();
+            return bol;
         }
     }
 }

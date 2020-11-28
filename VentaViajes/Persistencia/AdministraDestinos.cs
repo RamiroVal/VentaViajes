@@ -62,15 +62,15 @@ namespace VentaViajes.Persistencia
         /// <returns>Lista con claves de destino.</returns>
         public static Destino[] Destinos(string cadenaC)
         {
-            SqlCommand sqlCommand = new SqlCommand();
             SqlConnection sqlConnection = UsoBD.ConectaBD(cadenaC);
-            SqlDataReader reader = null;
-            List<Destino> claves = new List<Destino>();
             if (sqlConnection == null)
             {
                 errores = UsoBD.ESalida;
                 return null;
             }
+            SqlCommand sqlCommand = new SqlCommand();
+            SqlDataReader reader = null;
+            List<Destino> claves = new List<Destino>();
             string proc = "DatosDestinos";
             sqlCommand.Connection = sqlConnection;
             sqlCommand.CommandText = proc;

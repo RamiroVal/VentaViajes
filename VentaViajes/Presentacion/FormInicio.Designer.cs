@@ -69,20 +69,22 @@ namespace VentaViajes
             this.individualToolStripMenuItem,
             this.globalToolStripMenuItem});
             this.consuToolStripMenuItem.Name = "consuToolStripMenuItem";
-            this.consuToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.consuToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.consuToolStripMenuItem.Text = "Consultas";
             // 
             // individualToolStripMenuItem
             // 
             this.individualToolStripMenuItem.Name = "individualToolStripMenuItem";
-            this.individualToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.individualToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.individualToolStripMenuItem.Text = "Individual";
+            this.individualToolStripMenuItem.Click += new System.EventHandler(this.individualToolStripMenuItem_Click);
             // 
             // globalToolStripMenuItem
             // 
             this.globalToolStripMenuItem.Name = "globalToolStripMenuItem";
-            this.globalToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.globalToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.globalToolStripMenuItem.Text = "Global";
+            this.globalToolStripMenuItem.Click += new System.EventHandler(this.globalToolStripMenuItem_Click);
             // 
             // agregarToolStripMenuItem
             // 

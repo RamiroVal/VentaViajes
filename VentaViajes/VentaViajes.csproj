@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="Persistencia\AdministraBoletos.cs" />
     <Compile Include="Persistencia\AdministraDestinos.cs" />
+    <Compile Include="Persistencia\Boleto.cs" />
     <Compile Include="Persistencia\Destino.cs" />
     <Compile Include="Presentacion\FormAgregaDestino.cs">
       <SubType>Form</SubType>

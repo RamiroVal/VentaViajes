@@ -40,5 +40,16 @@ namespace VentaViajes
             FormConsultaGlobalDestinos c = new FormConsultaGlobalDestinos();
             c.ShowDialog();
         }
+
+        private void globalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormConsultasBoletos c = new FormConsultasBoletos();
+            c.ShowDialog();
+        }
+
+        private void individualToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
