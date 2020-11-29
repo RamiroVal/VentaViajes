@@ -75,14 +75,14 @@ namespace VentaViajes
             // individualToolStripMenuItem
             // 
             this.individualToolStripMenuItem.Name = "individualToolStripMenuItem";
-            this.individualToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.individualToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.individualToolStripMenuItem.Text = "Individual";
             this.individualToolStripMenuItem.Click += new System.EventHandler(this.individualToolStripMenuItem_Click);
             // 
             // globalToolStripMenuItem
             // 
             this.globalToolStripMenuItem.Name = "globalToolStripMenuItem";
-            this.globalToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.globalToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.globalToolStripMenuItem.Text = "Global";
             this.globalToolStripMenuItem.Click += new System.EventHandler(this.globalToolStripMenuItem_Click);
             // 
@@ -91,6 +91,7 @@ namespace VentaViajes
             this.agregarToolStripMenuItem.Name = "agregarToolStripMenuItem";
             this.agregarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.agregarToolStripMenuItem.Text = "Agregar";
+            this.agregarToolStripMenuItem.Click += new System.EventHandler(this.agregarToolStripMenuItem_Click);
             // 
             // viajesToolStripMenuItem
             // 
@@ -100,7 +101,6 @@ namespace VentaViajes
             this.viajesToolStripMenuItem.Name = "viajesToolStripMenuItem";
             this.viajesToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
             this.viajesToolStripMenuItem.Text = "Destinos";
-            this.viajesToolStripMenuItem.Click += new System.EventHandler(this.viajesToolStripMenuItem_Click);
             // 
             // consultasToolStripMenuItem
             // 

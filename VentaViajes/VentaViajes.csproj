@@ -56,6 +56,12 @@
     <Compile Include="Persistencia\AdministraDestinos.cs" />
     <Compile Include="Persistencia\Boleto.cs" />
     <Compile Include="Persistencia\Destino.cs" />
+    <Compile Include="Presentacion\FormAgregaBoleto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\FormAgregaBoleto.Designer.cs">
+      <DependentUpon>FormAgregaBoleto.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\FormAgregaDestino.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,6 +100,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Presentacion\FormAgregaBoleto.resx">
+      <DependentUpon>FormAgregaBoleto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\FormAgregaDestino.resx">
       <DependentUpon>FormAgregaDestino.cs</DependentUpon>
     </EmbeddedResource>

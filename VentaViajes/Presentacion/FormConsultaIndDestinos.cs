@@ -14,15 +14,11 @@ namespace VentaViajes.Presentacion
 {
     public partial class FormConsultaIndDestinos : Form
     {
-        public FormConsultaIndDestinos()
-        {
-            InitializeComponent();
-        }
+        public FormConsultaIndDestinos() => InitializeComponent();
 
-        private void FormConsultaIndDestinos_Load(object sender, EventArgs e)
-        {
-            CargarDestinos();
-        }
+        private void cmbDestinos_SelectionChangeCommitted(object sender, EventArgs e) => MuestraDatos();
+
+        private void FormConsultaIndDestinos_Load(object sender, EventArgs e) => CargarDestinos();
 
         private void CargarDestinos()
         {
@@ -65,11 +61,6 @@ namespace VentaViajes.Presentacion
             //txtNombre.Text = destino.Nombre;
             //txtCosto.Text = destino.Costo.ToString("C2");
             //txtDuracion.Text = destino.Duracion.ToString() + "hr";
-        }
-
-        private void cmbDestinos_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-            MuestraDatos();
         }
     }
 }

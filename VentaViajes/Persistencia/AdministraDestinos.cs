@@ -14,6 +14,7 @@ namespace VentaViajes.Persistencia
         // Sirve para guardar los errores que se presenten con la conexión SQL.
         public static SqlException errores;
 
+        #region Inserción
         /// <summary>
         /// Método para insertar nuevos destinos.
         /// </summary>
@@ -54,7 +55,9 @@ namespace VentaViajes.Persistencia
             conexion.Close();
             return true;
         }
+        #endregion
 
+        #region Consultas
         /// <summary>
         /// Método que devuelve una lista con las claves de los destinos.
         /// </summary>
@@ -92,6 +95,44 @@ namespace VentaViajes.Persistencia
                 double duracion = Convert.ToDouble(reader.GetValue(3));
                 string habilitado = reader.GetValue(4).ToString();
                 claves.Add(new Destino(clave, nombre, costo, duracion, habilitado));
+            }
+            Destino[] c = new Destino[claves.Count];
+            claves.CopyTo(c);
+            sqlConnection.Close();
+            return c;
+        }
+
+        public static Destino[] DatosParaBoleto(string cadenaC)
+        {
+            SqlConnection sqlConnection = UsoBD.ConectaBD(cadenaC);
+            if (sqlConnection == null)
+            {
+                errores = UsoBD.ESalida;
+                return null;
+            }
+            SqlCommand sqlCommand = new SqlCommand();
+            SqlDataReader reader = null;
+            List<Destino> claves = new List<Destino>();
+            string proc = "ConsultaNombrePrecio";
+            sqlCommand.Connection = sqlConnection;
+            sqlCommand.CommandText = proc;
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                reader = sqlCommand.ExecuteReader();
+            }
+            catch (SqlException e)
+            {
+                errores = e;
+                sqlConnection.Close();
+                return null;
+            }
+            while (reader.Read())
+            {
+                string clave = reader.GetValue(0).ToString();
+                string nombre = reader.GetValue(1).ToString();
+                double costo = Convert.ToDouble(reader.GetValue(2));
+                claves.Add(new Destino(clave, nombre, costo));
             }
             Destino[] c = new Destino[claves.Count];
             claves.CopyTo(c);
@@ -181,5 +222,6 @@ namespace VentaViajes.Persistencia
             connection.Close();
             return datos; ;
         }
+        #endregion
     }
 }

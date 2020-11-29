@@ -14,6 +14,7 @@ namespace VentaViajes.Persistencia
         // Sirve para guardar los errores que se presenten con la conexión SQL.
         public static SqlException errores;
 
+        #region Inserción
         /// <summary>
         /// Método para insertar nuevo boleto.
         /// </summary>
@@ -55,7 +56,9 @@ namespace VentaViajes.Persistencia
             conexion.Close();
             return true;
         }
+        #endregion
 
+        #region Consultas
         /// <summary>
         /// Método que obtiene los atributos de BOLETOS
         /// </summary>
@@ -148,6 +151,13 @@ namespace VentaViajes.Persistencia
             return c;
         }
 
+        /// <summary>
+        /// Método que devuelve todos los atributos de un boleto determinado
+        /// por su clave.
+        /// </summary>
+        /// <param name="conexion">Cadena de conexión.</param>
+        /// <param name="clave">Número de boleto.</param>
+        /// <returns>Arreglo string con los atributos.</returns>
         public static string[] DatosBoleto(string conexion, int clave)
         {
             SqlConnection connection = UsoBD.ConectaBD(conexion);
@@ -184,5 +194,51 @@ namespace VentaViajes.Persistencia
             }
             return boleto;
         }
+        #endregion
+
+        #region Validacion
+        /// <summary>
+        /// Método que valida si un número de asiento de un determinado
+        /// viajes esta ocupado o no.
+        /// </summary>
+        /// <param name="strConexion">Cadena de conexión.</param>
+        /// <param name="clave">Clave del destino.</param>
+        /// <param name="numAsiento">Número de asiento.</param>
+        /// <returns>true = disponible</returns>
+        public static bool ValidaAsiento(string strConexion, string clave, int numAsiento)
+        {
+            SqlConnection connection = UsoBD.ConectaBD(strConexion);
+            if (connection == null)
+            {
+                errores = UsoBD.ESalida;
+                return false;
+            }
+            string proc = "ValidarAsiento";
+            SqlCommand command = new SqlCommand(proc, connection);
+            SqlDataReader reader = null;
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@numAsiento", numAsiento);
+            command.Parameters.AddWithValue("@clvDestino", clave);
+            try
+            {
+                reader = command.ExecuteReader();
+            }catch(SqlException e)
+            {
+                errores = e;
+                connection.Close();
+                return false;
+            }
+            while (reader.Read())
+            {
+                proc = reader.GetValue(0).ToString();
+            }
+            connection.Close();
+            if (proc == "ValidarAsiento")
+            {
+                return true;
+            }
+            return false;
+        }
+        #endregion
     }
 }

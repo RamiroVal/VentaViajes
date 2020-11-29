@@ -14,10 +14,7 @@ namespace VentaViajes.Presentacion
 {
     public partial class FormAgregaDestino : Form
     {
-        public FormAgregaDestino()
-        {
-            InitializeComponent();
-        }
+        public FormAgregaDestino() => InitializeComponent();
 
         #region Eventos Validated
         private void txtClave_Validated(object sender, EventArgs e)

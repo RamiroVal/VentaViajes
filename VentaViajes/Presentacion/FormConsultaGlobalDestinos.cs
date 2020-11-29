@@ -13,10 +13,7 @@ namespace VentaViajes.Presentacion
 {
     public partial class FormConsultaGlobalDestinos : Form
     {
-        public FormConsultaGlobalDestinos()
-        {
-            InitializeComponent();
-        }
+        public FormConsultaGlobalDestinos() => InitializeComponent();
 
         private void FormConsultaGlobalDestinos_Load(object sender, EventArgs e)
         {

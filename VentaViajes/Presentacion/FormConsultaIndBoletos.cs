@@ -15,33 +15,11 @@ namespace VentaViajes.Presentacion
 {
     public partial class FormConsultaIndBoletos : Form
     {
-        public FormConsultaIndBoletos()
-        {
-            InitializeComponent();
-        }
+        public FormConsultaIndBoletos() => InitializeComponent();
 
-        private void FormConsultaIndBoletos_Load(object sender, EventArgs e)
-        {
-            CargaLista();
-        }
+        private void FormConsultaIndBoletos_Load(object sender, EventArgs e) => CargaLista();
 
-        private void CargaLista()
-        {
-            string conexion = "Data Source=LAPTOP-NF0LIA82;Initial Catalog=VENTABOLETOS;Integrated Security=True";
-            AutoCompleteStringCollection collection = new AutoCompleteStringCollection();
-            string[] claves = AdministraBoletos.Claves(conexion);
-            if (claves == null)
-            {
-                foreach (SqlError er in AdministraBoletos.errores.Errors)
-                {
-                    MessageBox.Show(er.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                return;
-            }
-            collection.AddRange(claves);
-            txtClave.AutoCompleteCustomSource = collection;
-        }
-
+        #region Eventos
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             if (!Consultar())
@@ -49,7 +27,7 @@ namespace VentaViajes.Presentacion
                 MessageBox.Show("Clave no existente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
+        
         private void txtClave_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Validar.ValidaClave(e.KeyChar))
@@ -67,6 +45,25 @@ namespace VentaViajes.Presentacion
                 Consultar();
                 errorProvider1.SetError(txtClave, "");
             }
+        }
+        #endregion
+
+        #region Consultas
+        private void CargaLista()
+        {
+            string conexion = "Data Source=LAPTOP-NF0LIA82;Initial Catalog=VENTABOLETOS;Integrated Security=True";
+            AutoCompleteStringCollection collection = new AutoCompleteStringCollection();
+            string[] claves = AdministraBoletos.Claves(conexion);
+            if (claves == null)
+            {
+                foreach (SqlError er in AdministraBoletos.errores.Errors)
+                {
+                    MessageBox.Show(er.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                return;
+            }
+            collection.AddRange(claves);
+            txtClave.AutoCompleteCustomSource = collection;
         }
 
         private bool Consultar()
@@ -101,7 +98,9 @@ namespace VentaViajes.Presentacion
             txtCosto.Text = datos[5];
             return true;
         }
+        #endregion
 
+        #region Utilerías
         private void Limpiar()
         {
             txtAsiento.Clear();
@@ -110,5 +109,6 @@ namespace VentaViajes.Presentacion
             txtTipo.Clear();
             txtAsiento.Clear();
         }
+        #endregion
     }
 }

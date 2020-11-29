@@ -13,25 +13,32 @@ namespace VentaViajes
 {
     public partial class FormInicio : Form
     {
-        public FormInicio()
+        public FormInicio() => InitializeComponent();
+
+        #region Boletos
+        private void agregarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            InitializeComponent();
+            FormAgregaBoleto c = new FormAgregaBoleto();
+            c.ShowDialog();
         }
-
-        private void viajesToolStripMenuItem_Click(object sender, EventArgs e)
+        
+        private void individualToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            FormConsultaIndBoletos c = new FormConsultaIndBoletos();
+            c.ShowDialog();
         }
+        
+        private void globalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormConsultasBoletos c = new FormConsultasBoletos();
+            c.ShowDialog();
+        }
+        #endregion
 
+        #region Destinos
         private void agregarToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             FormAgregaDestino c = new FormAgregaDestino();
-            c.ShowDialog();
-        }
-
-        private void individualToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            FormConsultaIndDestinos c = new FormConsultaIndDestinos();
             c.ShowDialog();
         }
 
@@ -40,17 +47,12 @@ namespace VentaViajes
             FormConsultaGlobalDestinos c = new FormConsultaGlobalDestinos();
             c.ShowDialog();
         }
-
-        private void globalToolStripMenuItem_Click(object sender, EventArgs e)
+        
+        private void individualToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            FormConsultasBoletos c = new FormConsultasBoletos();
+            FormConsultaIndDestinos c = new FormConsultaIndDestinos();
             c.ShowDialog();
         }
-
-        private void individualToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FormConsultaIndBoletos c = new FormConsultaIndBoletos();
-            c.ShowDialog();
-        }
+        #endregion
     }
 }

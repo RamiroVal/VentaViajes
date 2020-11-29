@@ -62,6 +62,7 @@ namespace VentaViajes.Presentacion
             this.txtClave.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.txtClave.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.txtClave.Location = new System.Drawing.Point(15, 25);
+            this.txtClave.MaxLength = 4;
             this.txtClave.Name = "txtClave";
             this.txtClave.Size = new System.Drawing.Size(100, 20);
             this.txtClave.TabIndex = 0;
@@ -87,28 +88,28 @@ namespace VentaViajes.Presentacion
             // 
             // txtPasajero
             // 
-            this.txtPasajero.Location = new System.Drawing.Point(168, 25);
+            this.txtPasajero.Location = new System.Drawing.Point(219, 25);
             this.txtPasajero.Name = "txtPasajero";
             this.txtPasajero.ReadOnly = true;
-            this.txtPasajero.Size = new System.Drawing.Size(100, 20);
+            this.txtPasajero.Size = new System.Drawing.Size(172, 20);
             this.txtPasajero.TabIndex = 5;
             this.txtPasajero.TabStop = false;
             // 
             // txtTipo
             // 
-            this.txtTipo.Location = new System.Drawing.Point(168, 74);
+            this.txtTipo.Location = new System.Drawing.Point(219, 74);
             this.txtTipo.Name = "txtTipo";
             this.txtTipo.ReadOnly = true;
-            this.txtTipo.Size = new System.Drawing.Size(100, 20);
+            this.txtTipo.Size = new System.Drawing.Size(172, 20);
             this.txtTipo.TabIndex = 6;
             this.txtTipo.TabStop = false;
             // 
             // txtCosto
             // 
-            this.txtCosto.Location = new System.Drawing.Point(168, 123);
+            this.txtCosto.Location = new System.Drawing.Point(219, 123);
             this.txtCosto.Name = "txtCosto";
             this.txtCosto.ReadOnly = true;
-            this.txtCosto.Size = new System.Drawing.Size(100, 20);
+            this.txtCosto.Size = new System.Drawing.Size(172, 20);
             this.txtCosto.TabIndex = 7;
             this.txtCosto.TabStop = false;
             // 
@@ -126,7 +127,7 @@ namespace VentaViajes.Presentacion
             // 
             this.lblTipo.AutoSize = true;
             this.lblTipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTipo.Location = new System.Drawing.Point(165, 58);
+            this.lblTipo.Location = new System.Drawing.Point(216, 58);
             this.lblTipo.Name = "lblTipo";
             this.lblTipo.Size = new System.Drawing.Size(76, 13);
             this.lblTipo.TabIndex = 9;
@@ -136,7 +137,7 @@ namespace VentaViajes.Presentacion
             // 
             this.lblPasajero.AutoSize = true;
             this.lblPasajero.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPasajero.Location = new System.Drawing.Point(165, 9);
+            this.lblPasajero.Location = new System.Drawing.Point(216, 9);
             this.lblPasajero.Name = "lblPasajero";
             this.lblPasajero.Size = new System.Drawing.Size(48, 13);
             this.lblPasajero.TabIndex = 10;
@@ -146,7 +147,7 @@ namespace VentaViajes.Presentacion
             // 
             this.lblCosto.AutoSize = true;
             this.lblCosto.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCosto.Location = new System.Drawing.Point(165, 107);
+            this.lblCosto.Location = new System.Drawing.Point(216, 107);
             this.lblCosto.Name = "lblCosto";
             this.lblCosto.Size = new System.Drawing.Size(34, 13);
             this.lblCosto.TabIndex = 11;
@@ -166,7 +167,7 @@ namespace VentaViajes.Presentacion
             // 
             this.btnBuscar.Location = new System.Drawing.Point(15, 178);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(253, 46);
+            this.btnBuscar.Size = new System.Drawing.Size(407, 46);
             this.btnBuscar.TabIndex = 1;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
@@ -181,7 +182,7 @@ namespace VentaViajes.Presentacion
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(283, 236);
+            this.ClientSize = new System.Drawing.Size(434, 236);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.lblDestino);
             this.Controls.Add(this.lblCosto);
@@ -196,7 +197,7 @@ namespace VentaViajes.Presentacion
             this.Controls.Add(this.txtClave);
             this.Controls.Add(this.lblClave);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(299, 275);
+            this.MaximumSize = new System.Drawing.Size(450, 275);
             this.MinimumSize = new System.Drawing.Size(299, 275);
             this.Name = "FormConsultaIndBoletos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

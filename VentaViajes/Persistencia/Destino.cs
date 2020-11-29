@@ -15,6 +15,7 @@ namespace VentaViajes.Persistencia
         private double costo;
         private string habilitado;
 
+        #region Constructores
         /// <summary>
         /// Constructor.
         /// </summary>
@@ -32,7 +33,21 @@ namespace VentaViajes.Persistencia
             this.habilitado = habilitado;
         }
 
-        public override string ToString() => clave;
+        /// <summary>
+        /// Constructor.
+        /// </summary>
+        /// <param name="clave">Clave del destino.</param>
+        /// <param name="nombre">Nombre del destino.</param>
+        /// <param name="costo">Costo del destino.</param>
+        public Destino(string clave, string nombre, double costo)
+        {
+            this.clave = clave;
+            this.nombre = nombre;
+            this.costo = costo;
+        }
+        #endregion
+
+        public override string ToString() => nombre;
 
         #region Propiedades
         /// <summary>

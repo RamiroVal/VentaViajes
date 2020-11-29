@@ -13,15 +13,9 @@ namespace VentaViajes.Presentacion
 {
     public partial class FormConsultasBoletos : Form
     {
-        public FormConsultasBoletos()
-        {
-            InitializeComponent();
-        }
+        public FormConsultasBoletos() => InitializeComponent();
 
-        private void FormConsultasBoletos_Load(object sender, EventArgs e)
-        {
-            LlenaDataGrid();
-        }
+        private void FormConsultasBoletos_Load(object sender, EventArgs e) => LlenaDataGrid();
 
         private void LlenaDataGrid()
         {
